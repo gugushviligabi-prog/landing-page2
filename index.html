@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="ka" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AURA Tech — მომავლის ინოვაციური ციფრული ეკოსისტემა</title>
+  <meta name="description"
+    content="AURA Tech არის შემდეგი თაობის AI და ციფრული ტექნოლოგიების პლატფორმა, რომელიც ეხმარება ბიზნესებს ზრდასა და ავტომატიზაციაში.">
+  <meta name="keywords" content="ტექნოლოგიები, AI, ანალიტიკა, პროგრამული უზრუნველყოფა, ვებ დეველოპმენტი, ინოვაცია">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="AURA Tech — მომავლის ინოვაციური ციფრული ეკოსისტემა">
+  <meta property="og:description"
+    content="AI ავტომატიზაცია, უსაფრთხოება და რეალურ დროში ანალიტიკა ერთ მძლავრ პლატფორმაში.">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts: Modern Latin + Georgian typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- Background Ambient Glow Effects -->
+  <div class="ambient-glow glow-1" aria-hidden="true"></div>
+  <div class="ambient-glow glow-2" aria-hidden="true"></div>
+  <div class="ambient-glow glow-3" aria-hidden="true"></div>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+  <!-- Header & Navigation -->
+  <header class="site-header" id="header">
+    <div class="container header-container">
+      <a href="#hero" class="logo" id="brand-logo" aria-label="AURA Tech მთავარი გვერდი">
+        <span class="logo-icon-wrap">
+          <svg class="logo-svg" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 4L34 12V28L20 36L6 28V12L20 4Z" stroke="url(#logo-grad)" stroke-width="2.5"
+              stroke-linejoin="round" />
+            <circle cx="20" cy="20" r="6" fill="url(#logo-grad-dot)" />
+            <path d="M20 10V14M20 26V30M10 20H14M26 20H30" stroke="url(#logo-grad)" stroke-width="2"
+              stroke-linecap="round" />
+            <defs>
+              <linearGradient id="logo-grad" x1="6" y1="4" x2="34" y2="36" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#38bdf8" />
+                <stop offset="0.5" stop-color="#818cf8" />
+                <stop offset="1" stop-color="#c084fc" />
+              </linearGradient>
+              <linearGradient id="logo-grad-dot" x1="14" y1="14" x2="26" y2="26" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#00f2fe" />
+                <stop offset="1" stop-color="#4facfe" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </span>
+        <span class="logo-text">AURA<span class="logo-dot">.</span>TECH</span>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="nav-menu" id="nav-menu" aria-label="მთავარი ნავიგაცია">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="#hero" class="nav-link active" id="nav-hero-link">მთავარი</a></li>
+          <li class="nav-item"><a href="#features" class="nav-link" id="nav-features-link">შესაძლებლობები</a></li>
+          <li class="nav-item"><a href="#about" class="nav-link" id="nav-about-link">ჩვენ შესახებ</a></li>
+          <li class="nav-item"><a href="#contact" class="nav-link" id="nav-contact-link">კონტაქტი</a></li>
+        </ul>
+      </nav>
+
+      <!-- Nav Actions (Theme Toggle & CTA) -->
+      <div class="header-actions">
+        <!-- Theme Toggle -->
+        <button class="theme-toggle" id="theme-toggle-btn" aria-label="თემის შეცვლა (ღია/მუქი)" title="თემის გადართვა">
+          <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <!-- CTA Button -->
+        <a href="#contact" class="btn btn-primary nav-cta-btn" id="nav-cta-btn">
+          <span>დაიწყე ახლავე</span>
+          <svg class="btn-arrow" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd"
+              d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+              clip-rule="evenodd" />
+          </svg>
+        </a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button class="mobile-toggle" id="mobile-toggle-btn" aria-label="მენიუს გახსნა/დახურვა" aria-expanded="false"
+          aria-controls="mobile-drawer">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-drawer" id="mobile-drawer">
+    <div class="mobile-drawer-inner">
+      <ul class="mobile-nav-list">
+        <li><a href="#hero" class="mobile-nav-link active">მთავარი</a></li>
+        <li><a href="#features" class="mobile-nav-link">შესაძლებლობები</a></li>
+        <li><a href="#about" class="mobile-nav-link">ჩვენ შესახებ</a></li>
+        <li><a href="#contact" class="mobile-nav-link">კონტაქტი</a></li>
+      </ul>
+      <div class="mobile-drawer-footer">
+        <a href="#contact" class="btn btn-primary btn-block">დაიწყე ახლავე</a>
+      </div>
+    </div>
+  </div>
+
+  <main id="main-content">
+
+    <!-- 1. HERO SECTION -->
+    <section class="hero-section" id="hero" aria-labelledby="hero-title">
+      <div class="container hero-container">
+
+        <!-- Left Hero Content -->
+        <div class="hero-content">
+          <!-- Top Badge -->
+          <div class="hero-badge" id="hero-badge">
+            <span class="badge-pulse"></span>
+            <span class="badge-icon">✨</span>
+            <span class="badge-text">შემდეგი თაობის AI ეკოსისტემა v2.4</span>
+          </div>
+
+          <!-- Main H1 Headline -->
+          <h1 class="hero-title" id="hero-title">
+            გადააქციე შენი <span class="gradient-text">იდეები რეალობად</span> ინტელექტუალური ძალით
+          </h1>
+
+          <!-- Subtitle -->
+          <p class="hero-desc">
+            AURA აერთიანებს მოწინავე ხელოვნურ ინტელექტს, რეალურ დროში მონაცემთა ანალიტიკას და უმაღლეს კიბერუსაფრთხოებას,
+            რათა თქვენი ბიზნესის ზრდა გახდეს შეუქცევადი.
+          </p>
+
+          <!-- Action Buttons -->
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-primary btn-lg glow-effect" id="hero-start-btn">
+              <span>დაიწყე უფასოდ</span>
+              <svg viewBox="0 0 20 20" fill="currentColor" class="btn-arrow">
+                <path fill-rule="evenodd"
+                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                  clip-rule="evenodd" />
+              </svg>
+            </a>
+            <button class="btn btn-secondary btn-lg" id="hero-demo-btn" aria-haspopup="dialog">
+              <span class="play-icon-wrap">
+                <svg viewBox="0 0 24 24" fill="currentColor" class="play-svg">
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </span>
+              <span>ვიდეო მიმოხილვა</span>
+            </button>
+          </div>
+
+          <!-- Key Stats Quick Strip -->
+          <div class="hero-quick-stats">
+            <div class="stat-pill">
+              <span class="stat-pill-num" data-target="99.9">0%</span>
+              <span class="stat-pill-label">Uptime გარანტია</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-pill">
+              <span class="stat-pill-num" data-target="150">0K+</span>
+              <span class="stat-pill-label">აქტიური ოპერაცია</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-pill">
+              <span class="stat-pill-num" data-target="10">0x</span>
+              <span class="stat-pill-label">სისწრაფის ზრდა</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Hero Visual / Interactive 3D Showcase Card -->
+        <div class="hero-visual" id="hero-visual-card">
+          <div class="interactive-card-wrapper" id="hero-tilt-card">
+
+            <!-- Floating Decorative Glass Badges -->
+            <div class="floating-badge badge-top-right glass-card">
+              <div class="f-badge-icon pulse-cyan">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                </svg>
+              </div>
+              <div class="f-badge-content">
+                <span class="f-badge-title">ეფექტურობა</span>
+                <span class="f-badge-val text-cyan">+148% ზრდა</span>
+              </div>
+            </div>
+
+            <div class="floating-badge badge-bottom-left glass-card">
+              <div class="f-badge-icon pulse-purple">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                </svg>
+              </div>
+              <div class="f-badge-content">
+                <span class="f-badge-title">უსაფრთხოების სტატუსი</span>
+                <span class="f-badge-val text-green">100% დაცული</span>
+              </div>
+            </div>
+
+            <!-- Main High-Tech Dashboard Image Frame -->
+            <div class="hero-image-frame glass-panel">
+              <div class="frame-header">
+                <div class="frame-dots">
+                  <span class="dot red"></span>
+                  <span class="dot yellow"></span>
+                  <span class="dot green"></span>
+                </div>
+                <div class="frame-title">aura_core_telemetry // live stream</div>
+                <div class="frame-status">
+                  <span class="status-indicator"></span>
+                  <span>ONLINE</span>
+                </div>
+              </div>
+
+              <div class="frame-img-container">
+                <img src="assets/images/hero-tech.jpg" alt="AURA Tech ციფრული მონაცემთა დაფა და AI ვიზუალიზაცია"
+                  class="hero-main-img" id="hero-img">
+                <div class="hero-img-overlay"></div>
+              </div>
+
+              <!-- Interactive mini telemetry bar inside frame -->
+              <div class="frame-footer">
+                <div class="telemetry-item">
+                  <span class="t-label">Neural Engine:</span>
+                  <span class="t-val">Active (Latency 4ms)</span>
+                </div>
+                <div class="telemetry-item">
+                  <span class="t-label">Cluster Load:</span>
+                  <div class="mini-progress-bar">
+                    <div class="mini-progress-fill" style="width: 38%;"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Trust Bar / Partners Strip -->
+      <div class="trust-bar">
+        <div class="container trust-container">
+          <p class="trust-title">ენდობიან გლობალური ინდუსტრიის ლიდერები და ინოვატორები</p>
+          <div class="trust-logos">
+            <div class="partner-logo"><span class="logo-mark">❖</span> NEXUS CLOUD</div>
+            <div class="partner-logo"><span class="logo-mark">▲</span> SYNERGY AI</div>
+            <div class="partner-logo"><span class="logo-mark">◆</span> VELOCITY LABS</div>
+            <div class="partner-logo"><span class="logo-mark">◈</span> QUANTUM DATA</div>
+            <div class="partner-logo"><span class="logo-mark">●</span> PULSE SYSTEM</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. FEATURES SECTION -->
+    <section class="features-section" id="features" aria-labelledby="features-title">
+      <div class="container">
+
+        <!-- Section Header -->
+        <div class="section-header text-center">
+          <div class="section-tag" id="features-tag">შესაძლებლობები // CAPABILITIES</div>
+          <h2 class="section-title" id="features-title">
+            ყველაფერი რაც გჭირდებათ <span class="gradient-text">სრულყოფილი მასშტაბირებისთვის</span>
+          </h2>
+          <p class="section-desc">
+            თანამედროვე ტექნოლოგიური არსენალი, შექმნილი მაქსიმალური სისწრაფის, მოქნილობისა და ინტუიციური მართვისთვის.
+          </p>
+
+          <!-- Category Filter Tabs -->
+          <div class="feature-filter-tabs" role="tablist" aria-label="შესაძლებლობების ფილტრი">
+            <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">ყველა</button>
+            <button class="filter-btn" data-filter="ai" role="tab" aria-selected="false">AI & ინტელექტი</button>
+            <button class="filter-btn" data-filter="analytics" role="tab" aria-selected="false">ანალიტიკა</button>
+            <button class="filter-btn" data-filter="security" role="tab" aria-selected="false">უსაფრთხოება</button>
+            <button class="filter-btn" data-filter="cloud" role="tab" aria-selected="false">ინფრასტრუქტურა</button>
+          </div>
+        </div>
+
+        <!-- Features Grid -->
+        <div class="features-grid" id="features-grid">
+
+          <!-- Feature Card 1 -->
+          <article class="feature-card glass-card" data-category="ai">
+            <div class="card-glow" aria-hidden="true"></div>
+            <div class="card-icon-wrap icon-cyan">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
+                <path d="M12 7v4M10 9h4"></path>
+              </svg>
+            </div>
+            <span class="card-tag">AI ავტომატიზაცია</span>
+            <h3 class="card-title">ჭკვიანი სამუშაო პროცესები</h3>
+            <p class="card-desc">
+              გაათავისუფლეთ გუნდი რუტინული პროცესებისგან. თვითსწავლებადი ალგორითმები ასრულებენ რთულ ამოცანებს 95%-ით
+              უფრო სწრაფად.
+            </p>
+            <ul class="card-highlights">
+              <li>✓ ავტონომიური დავალებების მართვა</li>
+              <li>✓ დოკუმენტების მყისიერი დამუშავება</li>
+            </ul>
+            <div class="card-action">
+              <button class="card-learn-more" data-feature="ai-workflows">დეტალურად →</button>
+            </div>
+          </article>
+
+          <!-- Feature Card 2 -->
+          <article class="feature-card glass-card" data-category="analytics">
+            <div class="card-glow" aria-hidden="true"></div>
+            <div class="card-icon-wrap icon-purple">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="18" y1="20" x2="18" y2="10"></line>
+                <line x1="12" y1="20" x2="12" y2="4"></line>
+                <line x1="6" y1="20" x2="6" y2="14"></line>
+                <path d="M4 20h16"></path>
+              </svg>
+            </div>
+            <span class="card-tag">დიდი მონაცემები</span>
+            <h3 class="card-title">რეალურ დროში ანალიტიკა</h3>
+            <p class="card-desc">
+              მიიღეთ გადაწყვეტილებები რეალურ ფაქტებზე დაყრდნობით. ინტერაქტიული გრაფიკები და პროგნოზირებადი მეტრიკები
+              პირდაპირ ეთერში.
+            </p>
+            <ul class="card-highlights">
+              <li>✓ მილიარდობით მოვლენის ნაკადი</li>
+              <li>✓ AI პროგნოზირებადი მოდელები</li>
+            </ul>
+            <div class="card-action">
+              <button class="card-learn-more" data-feature="realtime-analytics">დეტალურად →</button>
+            </div>
+          </article>
+
+          <!-- Feature Card 3 -->
+          <article class="feature-card glass-card" data-category="security">
+            <div class="card-glow" aria-hidden="true"></div>
+            <div class="card-icon-wrap icon-green">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+              </svg>
+            </div>
+            <span class="card-tag">კიბერუსაფრთხოება</span>
+            <h3 class="card-title">საბანკო დონის დაცვა</h3>
+            <p class="card-desc">
+              End-to-End დაშიფვრა (AES-256), როლებზე დაფუძნებული წვდომის კონტროლი და SOC2 / GDPR საერთაშორისო
+              სტანდარტების სრული შესაბამისობა.
+            </p>
+            <ul class="card-highlights">
+              <li>✓ მრავალფაქტორიანი ავთენტიფიკაცია</li>
+              <li>✓ ანომალიების მყისიერი გამოვლენა</li>
+            </ul>
+            <div class="card-action">
+              <button class="card-learn-more" data-feature="security-protection">დეტალურად →</button>
+            </div>
+          </article>
+
+          <!-- Feature Card 4 -->
+          <article class="feature-card glass-card" data-category="cloud">
+            <div class="card-glow" aria-hidden="true"></div>
+            <div class="card-icon-wrap icon-blue">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path>
+              </svg>
+            </div>
+            <span class="card-tag">ღრუბლოვანი ინტეგრაცია</span>
+            <h3 class="card-title">100+ მზა ინტეგრაცია</h3>
+            <p class="card-desc">
+              დააკავშირეთ AURA თქვენს საყვარელ სერვისებთან წამებში: Slack, GitHub, Google Cloud, AWS, Salesforce და
+              მრავალი სხვა.
+            </p>
+            <ul class="card-highlights">
+              <li>✓ One-click Webhook დაკავშირება</li>
+              <li>✓ მონაცემთა უწყვეტი სინქრონიზაცია</li>
+            </ul>
+            <div class="card-action">
+              <button class="card-learn-more" data-feature="cloud-integrations">დეტალურად →</button>
+            </div>
+          </article>
+
+          <!-- Feature Card 5 -->
+          <article class="feature-card glass-card" data-category="ai">
+            <div class="card-glow" aria-hidden="true"></div>
+            <div class="card-icon-wrap icon-pink">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                <circle cx="9" cy="10" r="1"></circle>
+                <circle cx="15" cy="10" r="1"></circle>
+              </svg>
+            </div>
+            <span class="card-tag">მხარდაჭერა & ასისტენტი</span>
+            <h3 class="card-title">ინტელექტუალური Copilot</h3>
+            <p class="card-desc">
+              ინტეგრირებული AI ასისტენტი, რომელიც ესმის ქართულ და უცხოურ ენებს, ეხმარება კოდის გენერაციაში, ანგარიშების
+              მომზადებასა და კლიენტთა მომსახურებაში.
+            </p>
+            <ul class="card-highlights">
+              <li>✓ მრავალენოვანი 24/7 რეაგირება</li>
+              <li>✓ კონტექსტუალური სწავლება</li>
+            </ul>
+            <div class="card-action">
+              <button class="card-learn-more" data-feature="ai-copilot">დეტალურად →</button>
+            </div>
+          </article>
+
+          <!-- Feature Card 6 -->
+          <article class="feature-card glass-card" data-category="cloud">
+            <div class="card-glow" aria-hidden="true"></div>
+            <div class="card-icon-wrap icon-orange">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="16 18 22 12 16 6"></polyline>
+                <polyline points="8 6 2 12 8 18"></polyline>
+              </svg>
+            </div>
+            <span class="card-tag">დეველოპმენტი</span>
+            <h3 class="card-title">ულტრა-სწრაფი REST & GraphQL API</h3>
+            <p class="card-desc">
+              შექმნილი დეველოპერებისთვის. დეტალური SDK დოკუმენტაცია, CLI ხელსაწყოები და &lt;10ms რეაგირების დრო
+              გლობალური CDN ქსელიდან.
+            </p>
+            <ul class="card-highlights">
+              <li>✓ ავტო-გენერირებული SDK-ები</li>
+              <li>✓ 99.99% SLA გარანტია</li>
+            </ul>
+            <div class="card-action">
+              <button class="card-learn-more" data-feature="developer-api">დეტალურად →</button>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Interactive Feature Showcase Bar -->
+        <div class="feature-interactive-bar glass-panel">
+          <div class="fib-content">
+            <h4>გჭირდებათ ინდივიდუალური გადაწყვეტა?</h4>
+            <p>ჩვენი ინჟინრები მზად არიან მოარგონ AURA-ს ეკოსისტემა თქვენი კომპანიის სპეციფიკას.</p>
+          </div>
+          <a href="#contact" class="btn btn-primary">მოითხოვეთ კონსულტაცია</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 3. ABOUT SECTION -->
+    <section class="about-section" id="about" aria-labelledby="about-title">
+      <div class="container">
+
+        <div class="about-grid">
+
+          <!-- Left Column: Visual & Dynamic Experience Card -->
+          <div class="about-visual-col">
+            <div class="about-image-wrapper glass-panel">
+              <img src="assets/images/about-team.jpg" alt="AURA Tech ინოვაციური საინჟინრო ლაბორატორია და გუნდი"
+                class="about-img" id="about-img">
+              <div class="about-img-badge glass-card">
+                <span class="badge-num" id="exp-counter">8+</span>
+                <span class="badge-lbl">წლიანი ინოვაცია და გამოცდილება</span>
+              </div>
+            </div>
+
+            <!-- Mini Story Card below image -->
+            <div class="about-quote-box glass-card">
+              <div class="quote-icon">“</div>
+              <p class="quote-text">
+                „ჩვენი მისიაა მივცეთ თითოეულ ორგანიზაციას შესაძლებლობა, გამოიყენოს ხელოვნური ინტელექტის უსაზღვრო
+                პოტენციალი ყოველდღიურ საქმიანობაში.“
+              </p>
+              <div class="quote-author">
+                <div class="author-avatar">DG</div>
+                <div class="author-info">
+                  <span class="author-name">დავით გიორგობიანი</span>
+                  <span class="author-role">დამფუძნებელი & CTO</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Story & Interactive Pillars -->
+          <div class="about-content-col">
+            <div class="section-tag" id="about-tag">ჩვენ შესახებ // WHO WE ARE</div>
+            <h2 class="section-title" id="about-title">
+              ვაშენებთ <span class="gradient-text">ტექნოლოგიურ ხვალინდელ დღეს</span> დღესვე
+            </h2>
+            <p class="about-lead">
+              AURA Tech დაიბადა რწმენით, რომ მომავლის პროგრამული უზრუნველყოფა უნდა იყოს სწრაფი, უსაფრთხო და ადამიანის
+              შესაძლებლობების გამაძლიერებელი.
+            </p>
+            <p class="about-text">
+              ჩვენ ვაერთიანებთ გამოცდილ მკვლევარებს, პროგრამისტებსა და დიზაინერებს, რათა შევქმნათ ინსტრუმენტები,
+              რომლებიც რთულ გამოთვლებსა და ანალიზს აქცევს მარტივ და ინტუიციურ გამოცდილებად.
+            </p>
+
+            <!-- Interactive Pillars Accordion -->
+            <div class="pillars-accordion" id="pillars-accordion">
+
+              <div class="pillar-item active" data-pillar="1">
+                <button class="pillar-header" aria-expanded="true">
+                  <span class="pillar-num">01</span>
+                  <span class="pillar-title">ინოვაცია უკომპრომისო სტანდარტებით</span>
+                  <span class="pillar-icon">+</span>
+                </button>
+                <div class="pillar-body">
+                  <p>ჩვენ ყოველდღიურად ვტესტავთ უახლეს Deep Learning მოდელებს და ღრუბლოვან არქიტექტურებს, რათა
+                    მომხმარებელს მივაწოდოთ საუკეთესო შედეგი.</p>
+                </div>
+              </div>
+
+              <div class="pillar-item" data-pillar="2">
+                <button class="pillar-header" aria-expanded="false">
+                  <span class="pillar-num">02</span>
+                  <span class="pillar-title">მონაცემთა სრული კონფიდენციალობა</span>
+                  <span class="pillar-icon">+</span>
+                </button>
+                <div class="pillar-body">
+                  <p>თქვენი მონაცემები ეკუთვნის მხოლოდ თქვენ. ჩვენ არ ვიყენებთ კლიენტის ინფორმაციას გარე მოდელების
+                    დასატრენინგებლად და ვიცავთ უმკაცრეს კონფიდენციალობას.</p>
+                </div>
+              </div>
+
+              <div class="pillar-item" data-pillar="3">
+                <button class="pillar-header" aria-expanded="false">
+                  <span class="pillar-num">03</span>
+                  <span class="pillar-title">გლობალური მასშტაბირებადობა</span>
+                  <span class="pillar-icon">+</span>
+                </button>
+                <div class="pillar-body">
+                  <p>პლატფორმა შექმნილია მილიონობით მოთხოვნის უწყვეტ რეჟიმში გასატარებლად მსოფლიოს ნებისმიერი წერტილიდან
+                    მინიმალური დაყოვნებით.</p>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Stats Grid with live Counter-Up Animation -->
+            <div class="about-stats-grid" id="about-stats-grid">
+              <div class="about-stat-box glass-card">
+                <span class="as-number" data-target="50" data-suffix="K+">0</span>
+                <span class="as-label">კმაყოფილი მომხმარებელი</span>
+              </div>
+              <div class="about-stat-box glass-card">
+                <span class="as-number" data-target="99.98" data-suffix="%" data-decimals="2">0%</span>
+                <span class="as-label">სერვერის Uptime</span>
+              </div>
+              <div class="about-stat-box glass-card">
+                <span class="as-number" data-target="140" data-suffix="+">0</span>
+                <span class="as-label">ქვეყანა მსოფლიოში</span>
+              </div>
+              <div class="about-stat-box glass-card">
+                <span class="as-number" data-target="4.9" data-suffix="/5" data-decimals="1">0</span>
+                <span class="as-label">მომხმარებელთა რეიტინგი</span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Interactive Testimonial Section -->
+    <section class="testimonial-section" id="testimonials">
+      <div class="container">
+        <div class="section-header text-center">
+          <div class="section-tag">შეფასებები // REVIEWS</div>
+          <h2 class="section-title">რას ამბობენ <span class="gradient-text">ჩვენი პარტნიორები</span></h2>
+        </div>
+
+        <div class="testimonial-slider-wrap">
+          <div class="testimonial-card glass-card active" id="testimonial-card">
+            <div class="t-stars">★★★★★</div>
+            <p class="t-quote" id="t-quote">
+              „AURA Tech-ის ინტეგრაციის შემდეგ ჩვენი მონაცემების დამუშავების დრო 6-ჯერ შემცირდა. სისტემის სტაბილურობა და
+              ქართული ენის სრული მხარდაჭერა საუკეთესოა ბაზარზე.“
+            </p>
+            <div class="t-user">
+              <div class="t-avatar" id="t-avatar">ნი</div>
+              <div class="t-details">
+                <h4 class="t-name" id="t-name">ნიკოლოზ ბერიძე</h4>
+                <p class="t-role" id="t-role">ოპერაციული დირექტორი, FinTech Solutions</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Carousel Controls -->
+          <div class="carousel-dots" id="carousel-dots">
+            <button class="dot-btn active" data-slide="0" aria-label="მიმოხილვა 1"></button>
+            <button class="dot-btn" data-slide="1" aria-label="მიმოხილვა 2"></button>
+            <button class="dot-btn" data-slide="2" aria-label="მიმოხილვა 3"></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. CONTACT SECTION -->
+    <section class="contact-section" id="contact" aria-labelledby="contact-title">
+      <div class="container">
+
+        <div class="section-header text-center">
+          <div class="section-tag" id="contact-tag">კონტაქტი // GET IN TOUCH</div>
+          <h2 class="section-title" id="contact-title">
+            დაიწყეთ თქვენი <span class="gradient-text">ციფრული ტრანსფორმაცია</span>
+          </h2>
+          <p class="section-desc">
+            გაქვთ შეკითხვები ან გსურთ ინდივიდუალური დემო ჩვენების დაჯავშნა? მოგვწერეთ და ჩვენი გუნდი დაგიკავშირდებათ
+            უმოკლეს დროში.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+
+          <!-- Left Column: Contact Cards & Info -->
+          <div class="contact-info-col">
+
+            <div class="contact-info-card glass-card">
+              <div class="ci-icon icon-cyan">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </div>
+              <div class="ci-details">
+                <span class="ci-label">ელექტრონული ფოსტა</span>
+                <a href="mailto:info@auratech.ge" class="ci-val">info@auratech.ge</a>
+                <span class="ci-sub">პასუხი 2 საათის განმავლობაში</span>
+              </div>
+            </div>
+
+            <div class="contact-info-card glass-card">
+              <div class="ci-icon icon-purple">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                  </path>
+                </svg>
+              </div>
+              <div class="ci-details">
+                <span class="ci-label">საკონტაქტო ტელეფონი</span>
+                <a href="tel:+995322000000" class="ci-val">+995 (32) 200-00-00</a>
+                <span class="ci-sub">ორშ - პარ: 09:00 - 19:00</span>
+              </div>
+            </div>
+
+            <div class="contact-info-card glass-card">
+              <div class="ci-icon icon-green">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+              </div>
+              <div class="ci-details">
+                <span class="ci-label">მთავარი ოფისი</span>
+                <span class="ci-val">შოთა რუსთაველის გამზ. 42</span>
+                <span class="ci-sub">თბილისი, საქართველო</span>
+              </div>
+            </div>
+
+            <!-- Live Status Indicator Box -->
+            <div class="support-status-box glass-card">
+              <div class="ss-dot-wrapper">
+                <span class="ss-dot"></span>
+                <span class="ss-dot-pulse"></span>
+              </div>
+              <div class="ss-content">
+                <strong>სისტემები აქტიურია</strong>
+                <span>ყველა სერვისი მუშაობს შეუფერხებლად (100%)</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Right Column: Interactive Form -->
+          <div class="contact-form-col">
+            <div class="contact-form-wrap glass-panel">
+              <div class="form-header">
+                <h3>გამოგვიგზავნეთ შეტყობინება</h3>
+                <p>შეავსეთ ფორმა და ჩვენი კონსულტანტი მოგიმზადებთ პერსონალიზებულ პრეზენტაციას.</p>
+              </div>
+
+              <form id="contact-form" class="interactive-form" novalidate>
+
+                <div class="form-row">
+                  <!-- Name Field -->
+                  <div class="form-group">
+                    <label for="contact-name">თქვენი სახელი და გვარი <span class="required">*</span></label>
+                    <div class="input-wrap">
+                      <input type="text" id="contact-name" name="name" class="form-input"
+                        placeholder="მაგ: გიორგი ბერიძე" required autocomplete="name">
+                      <span class="input-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                          <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                      </span>
+                    </div>
+                    <span class="field-error" id="name-error"></span>
+                  </div>
+
+                  <!-- Email Field -->
+                  <div class="form-group">
+                    <label for="contact-email">ელექტრონული ფოსტა <span class="required">*</span></label>
+                    <div class="input-wrap">
+                      <input type="email" id="contact-email" name="email" class="form-input"
+                        placeholder="giorgi@company.ge" required autocomplete="email">
+                      <span class="input-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                          <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                      </span>
+                    </div>
+                    <span class="field-error" id="email-error"></span>
+                  </div>
+                </div>
+
+                <!-- Service Selector -->
+                <div class="form-group">
+                  <label for="contact-service">დაინტერესების სფერო</label>
+                  <div class="input-wrap select-wrap">
+                    <select id="contact-service" name="service" class="form-input form-select">
+                      <option value="enterprise-ai">AI & ავტომატიზაცია (Enterprise AI)</option>
+                      <option value="data-analytics">მონაცემთა ანალიტიკა და BI</option>
+                      <option value="cloud-security">უსაფრთხოება და ღრუბლოვანი ინფრასტრუქტურა</option>
+                      <option value="custom-solution">სხვა ინდივიდუალური პროექტი</option>
+                    </select>
+                  </div>
+                </div>
+
+                <!-- Message Field -->
+                <div class="form-group">
+                  <label for="contact-message">შეტყობინება <span class="required">*</span></label>
+                  <div class="input-wrap">
+                    <textarea id="contact-message" name="message" rows="4" class="form-input form-textarea"
+                      placeholder="მოგვიყევით თქვენი პროექტის ან მოთხოვნების შესახებ..." required></textarea>
+                  </div>
+                  <div class="textarea-footer">
+                    <span class="char-count" id="char-counter">0 / 500</span>
+                    <span class="field-error" id="message-error"></span>
+                  </div>
+                </div>
+
+                <!-- Privacy Checkbox -->
+                <div class="form-group checkbox-group">
+                  <label class="custom-checkbox">
+                    <input type="checkbox" id="contact-terms" name="terms" required>
+                    <span class="checkbox-indicator"></span>
+                    <span class="checkbox-label">ვეთანხმები კონფიდენციალურობის პოლიტიკასა და მონაცემთა დამუშავების
+                      წესებს.</span>
+                  </label>
+                  <span class="field-error" id="terms-error"></span>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="btn btn-primary btn-block btn-lg" id="contact-submit-btn">
+                  <span class="btn-text">გაგზავნეთ შეტყობინება</span>
+                  <span class="btn-spinner" aria-hidden="true"></span>
+                  <svg viewBox="0 0 20 20" fill="currentColor" class="btn-arrow">
+                    <path fill-rule="evenodd"
+                      d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                      clip-rule="evenodd" />
+                  </svg>
+                </button>
+
+              </form>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Video Demo Modal Dialog -->
+  <div class="modal-backdrop" id="demo-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+    <div class="modal-box glass-panel">
+      <div class="modal-header">
+        <h3 id="modal-title">AURA Tech — პლატფორმის ინტერაქტიული მიმოხილვა</h3>
+        <button class="modal-close-btn" id="modal-close-btn" aria-label="დახურვა">✕</button>
+      </div>
+      <div class="modal-content">
+        <div class="video-mock-container">
+          <img src="assets/images/hero-tech.jpg" alt="AURA Tech პლატფორმის დემო ჩვენება" class="modal-video-preview">
+          <div class="video-mock-overlay">
+            <div class="pulse-play-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </div>
+            <p class="video-overlay-text">ინტერაქტიული დემო სიმულაცია გაშვებულია</p>
+          </div>
+        </div>
+        <p class="modal-info-text">
+          გაიგეთ როგორ ამუშავებს AURA მილიონობით მოვლენას წამში, ქმნის პროგნოზირებად მოდელებს და უზრუნველყოფს უწყვეტ
+          კიბერუსაფრთხოებას.
+        </p>
+      </div>
+      <div class="modal-footer">
+        <a href="#contact" class="btn btn-primary" id="modal-cta-btn">დაჯავშნე პირადი დემო</a>
+        <button class="btn btn-secondary" id="modal-dismiss-btn">დახურვა</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+
+      <!-- Column 1: Brand -->
+      <div class="footer-col brand-col">
+        <a href="#hero" class="logo">
+          <span class="logo-icon-wrap">
+            <svg class="logo-svg" viewBox="0 0 40 40" fill="none">
+              <path d="M20 4L34 12V28L20 36L6 28V12L20 4Z" stroke="url(#f-logo-grad)" stroke-width="2.5"
+                stroke-linejoin="round" />
+              <circle cx="20" cy="20" r="6" fill="url(#f-logo-grad-dot)" />
+              <defs>
+                <linearGradient id="f-logo-grad" x1="6" y1="4" x2="34" y2="36" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#38bdf8" />
+                  <stop offset="1" stop-color="#c084fc" />
+                </linearGradient>
+                <linearGradient id="f-logo-grad-dot" x1="14" y1="14" x2="26" y2="26" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#00f2fe" />
+                  <stop offset="1" stop-color="#4facfe" />
+                </linearGradient>
+              </defs>
+            </svg>
+          </span>
+          <span class="logo-text">AURA<span class="logo-dot">.</span>TECH</span>
+        </a>
+        <p class="footer-desc">
+          ინტელექტუალური ციფრული ეკოსისტემა, შექმნილი ორგანიზაციების სრულყოფილი განვითარებისთვის.
+        </p>
+        <div class="social-links">
+          <a href="#" class="social-btn" aria-label="Twitter / X">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+            </svg>
+          </a>
+          <a href="#" class="social-btn" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+            </svg>
+          </a>
+          <a href="#" class="social-btn" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Column 2: Navigation Links -->
+      <div class="footer-col links-col">
+        <h4 class="footer-heading">სექციები</h4>
+        <ul class="footer-list">
+          <li><a href="#hero">მთავარი გვერდი</a></li>
+          <li><a href="#features">შესაძლებლობები</a></li>
+          <li><a href="#about">ჩვენ შესახებ</a></li>
+          <li><a href="#contact">კონტაქტი & მხარდაჭერა</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 3: Features & Services -->
+      <div class="footer-col services-col">
+        <h4 class="footer-heading">პროდუქტები</h4>
+        <ul class="footer-list">
+          <li><a href="#features">AI ავტომატიზაცია</a></li>
+          <li><a href="#features">მონაცემთა ანალიტიკა</a></li>
+          <li><a href="#features">ღრუბლოვანი უსაფრთხოება</a></li>
+          <li><a href="#features">REST & GraphQL API</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 4: Newsletter -->
+      <div class="footer-col newsletter-col">
+        <h4 class="footer-heading">სიახლეების გამოწერა</h4>
+        <p class="footer-sub-text">მიიღეთ უახლესი ტექნოლოგიური განახლებები პირდაპირ საფოსტო ყუთში.</p>
+        <form id="newsletter-form" class="newsletter-form">
+          <div class="newsletter-input-group">
+            <input type="email" id="newsletter-email" placeholder="თქვენი ელ-ფოსტა" required
+              aria-label="ელ-ფოსტა სიახლეებისთვის">
+            <button type="submit" class="btn btn-primary btn-sm" aria-label="გამოწერა">
+              <svg viewBox="0 0 20 20" fill="currentColor" class="send-svg">
+                <path
+                  d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" />
+              </svg>
+            </button>
+          </div>
+          <span class="newsletter-msg" id="newsletter-msg"></span>
+        </form>
+      </div>
+
+    </div>
+
+    <!-- Bottom copyright bar -->
+    <div class="footer-bottom">
+      <div class="container footer-bottom-container">
+        <p>© 2026 AURA Tech Inc. ყველა უფლება დაცულია.</p>
+        <div class="footer-bottom-links">
+          <a href="#">კონფიდენციალურობა</a>
+          <span class="sep">•</span>
+          <a href="#">წესები და პირობები</a>
+          <span class="sep">•</span>
+          <a href="#">Cookies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Scroll To Top Button -->
+  <button class="scroll-top-btn" id="scroll-top-btn" aria-label="ზემოთ დაბრუნება" title="ზემოთ ასვლა">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+      stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <!-- Script -->
+  <script src="js/main.js"></script>
+</body>
+
+</html>
